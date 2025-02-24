@@ -9,7 +9,7 @@ export async function createActivityAction(_, formData) {
   const category = formData.get("category");
 
   await fetch(API_URL, {
-    method: "POST",
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },

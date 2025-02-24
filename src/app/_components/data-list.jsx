@@ -1,7 +1,9 @@
+import { API_URL } from "@/constants/api-url";
 import React from "react";
+import { Button, Input, Select, SelectItem } from "@heroui/react";
 
 export const DataList = async () => {
-  const res = await fetch("https://v1.appbackend.io/v1/rows/iBgPWEw8n0aM");
+  const res = await fetch(API_URL);
   const { data } = await res.json();
 
   const allDebitData = data
@@ -19,11 +21,14 @@ export const DataList = async () => {
           return (
             <div
               key={item._id}
-              className="grid grid-cols-3 border items-center"
+              className="grid grid-cols-4 border items-center"
             >
               <div className="border-r p-2">{item.title}</div>
               <div className="border-r p-2">{item.amount}</div>
               <div className="border-r p-2">{item.category}</div>
+              <Button size="sm" color="danger">
+                Del.
+              </Button>
             </div>
           );
         })}
